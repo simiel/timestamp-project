@@ -26,6 +26,12 @@ app.get("/api/hello", function (req, res) {
 });
 
 
+app.get("/api", function (req, res) {
+  let [currentUnix, currentUtc] = [new Date().getTime(), new Date().toUTCString()];
+  res.json({"unix": currentUnix, "utc": currentUtc});
+});
+
+
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
